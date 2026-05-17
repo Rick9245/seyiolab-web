@@ -1,0 +1,6 @@
+
+import Link from "next/link";
+export const metadata = { title: "Politique de confidentialité — Seyio Lab", description: "Politique de confidentialité du site Seyio Lab." };
+export default function Confidentialite() {
+  return <main className="container legal"><Link href="/">← Retour</Link><h1>Politique de confidentialité</h1><p>Seyio Lab collecte uniquement les informations que vous choisissez de transmettre volontairement, notamment lorsque vous contactez la société par email.</p><h2>Finalité</h2><p>Les données sont utilisées pour répondre aux demandes, gérer les échanges professionnels et assurer le suivi commercial éventuel.</p><h2>Durée de conservation</h2><p>Les données sont conservées pendant une durée proportionnée à la finalité de l’échange, sauf obligation légale contraire.</p><h2>Vos droits</h2><p>Vous pouvez exercer vos droits RGPD en écrivant à contact@seyiolab.com.</p></main>;
+}
