@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 190" role="img" aria-label="Seyio Lab"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5EE6FF"/><stop offset=".45" stop-color="#4D5CFF"/><stop offset="1" stop-color="#B17CFF"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g transform="translate(118 0)"><text x="8" y="94" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700" letter-spacing="24" fill="white">S</text><text x="138" y="94" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="800" fill="url(#g)" filter="url(#glow)">Σ</text><text x="260" y="94" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700" letter-spacing="24" fill="white">YIO</text><text x="236" y="158" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="400" letter-spacing="42" fill="white">LAB</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 190" role="img" aria-label="Seyio Lab">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5EE6FF"/><stop offset=".45" stop-color="#4D5CFF"/><stop offset="1" stop-color="#B17CFF"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g text-anchor="middle">
+  <text x="450" y="92" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700" letter-spacing="25" fill="white">
+    <tspan>S</tspan><tspan fill="url(#g)" filter="url(#glow)">Σ</tspan><tspan>YIO</tspan>
+  </text>
+  <text x="450" y="156" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="400" letter-spacing="42" fill="white">LAB</text>
+</g>
+</svg>
