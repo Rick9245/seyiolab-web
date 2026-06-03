@@ -1,48 +1,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
-const products = [
-  ["Koprio", "Solution SaaS dédiée à la gestion de copropriété."],
-  ["Coblio", "Legal-tech IA pour la gestion et l’analyse de contrats."],
-  ["Leaxit", "Outil digital pour la restitution de bail."],
-  ["Kojo", "Applications mobiles, expériences digitales et jeux."]
-];
-
+const products = [{"name": "Koprio", "description": "Gestion de copropriété moderne pour syndics, copropriétaires et professionnels de l’immobilier.", "url": "https://koprio.app", "logo": "/apps/koprio.png", "type": "app"}, {"name": "Tamario", "description": "Secure data room pensée pour organiser, protéger et partager les documents sensibles.", "url": "https://tamario.app", "logo": "/apps/tamario.png", "type": "wide"}, {"name": "Leaxit", "description": "Solution digitale pour simplifier la restitution de bail et fluidifier les démarches locatives.", "url": "https://leaxit.com", "logo": "/apps/leaxit.png", "type": "app"}, {"name": "Coblio", "description": "Legal-tech IA pour la gestion, l’analyse et le suivi intelligent des contrats.", "url": "https://coblio.app", "logo": "/apps/coblio.png", "type": "wide"}, {"name": "Ovelis", "description": "Application SaaS en ligne, conçue pour répondre à des besoins métiers spécifiques.", "url": "https://ovelis.app", "logo": "/apps/ovelis.svg", "type": "app"}];
 export default function Home() {
-  return (
-    <>
-      <header className="container nav">
-        <Image src="/logo.svg" alt="Seyio Lab" width={210} height={50} priority />
-        <nav className="navlinks">
-          <a href="#produits">Produits</a>
-          <a href="#vision">Vision</a>
-          <Link href="/mentions-legales">Mentions légales</Link>
-        </nav>
-      </header>
-      <main>
-        <section className="hero">
-          <div className="hero-card container">
-            <div className="logo-wrap">
-              <Image className="logo-main" src="/logo.svg" alt="Logo Seyio Lab avec effet de lumière" width={720} height={180} priority />
-            </div>
-            <div className="kicker">Studio SaaS · IA · Cloud</div>
-            <h1>Construire les logiciels métiers de demain.</h1>
-            <p className="lead">Seyio Lab est un studio français d’édition de logiciels SaaS basé à Courbevoie. Nous concevons des produits digitaux professionnels, pensés pour devenir des entités indépendantes à maturité commerciale.</p>
-            <div className="actions"><a className="btn" href="#produits">Découvrir nos produits</a><a className="btn secondary" href="mailto:contact@seyiolab.com">Nous contacter</a></div>
-          </div>
-        </section>
-        <section id="produits" className="container section">
-          <h2>Une pépinière de produits digitaux.</h2>
-          <p className="text">Chaque application répond à un besoin métier clair : immobilier, legal-tech, gestion, IA et expériences mobiles.</p>
-          <div className="grid">{products.map(([name, desc]) => <article className="card" key={name}><h3>{name}</h3><p>{desc}</p></article>)}</div>
-        </section>
-        <section id="vision" className="container section two">
-          <h2>Technologique, clair, fiable.</h2>
-          <div className="text"><p>Seyio Lab développe des outils professionnels avec une vision long terme : innovation utile, interfaces lisibles, architectures modernes et ambition européenne.</p><p>Nos produits s’appuient sur des technologies cloud, React et intelligence artificielle pour créer des solutions robustes, accessibles et évolutives.</p></div>
-        </section>
-      </main>
-      <footer className="container footer"><span>© {new Date().getFullYear()} Seyio Lab — Courbevoie, France</span><span><Link href="/mentions-legales">Mentions légales</Link> · <Link href="/politique-confidentialite">Confidentialité</Link></span></footer>
-    </>
-  );
+  return (<>
+    <header className="container nav"><Image src="/logo.svg" alt="Seyio Lab" width={210} height={50} priority /><nav className="navlinks"><a href="#produits">Produits</a><a href="#vision">Vision</a><Link href="/mentions-legales">Mentions légales</Link></nav></header>
+    <main>
+      <section className="hero"><div className="hero-card container"><div className="logo-wrap"><Image className="logo-main" src="/logo.svg" alt="Logo Seyio Lab avec effet de lumière" width={720} height={180} priority /></div><div className="kicker">Studio SaaS · IA · Cloud</div><h1>Construire les logiciels métiers de demain.</h1><p className="lead">Seyio Lab est un studio français d’édition de logiciels SaaS basé à Courbevoie. Nous concevons des produits digitaux professionnels, pensés pour devenir des entités indépendantes à maturité commerciale.</p><div className="actions"><a className="btn" href="#produits">Découvrir nos produits</a><a className="btn secondary" href="mailto:contact@seyiolab.com">Nous contacter</a></div></div></section>
+      <section id="produits" className="container section"><h2>Une pépinière de produits digitaux.</h2><p className="text">Chaque application répond à un besoin métier clair : immobilier, legal-tech, gestion, data room, IA et expériences cloud. Le portefeuille est évolutif et s’enrichira avec les prochaines mises en ligne.</p><div className="carousel" aria-label="Carousel des applications Seyio Lab">{products.map((p) => <article className="product-card" key={p.name}><div className="product-logo-box"><Image className={`product-logo ${p.type === "wide" ? "wide" : ""}`} src={p.logo} alt={`Logo ${p.name}`} width={180} height={120} /></div><h3>{p.name}</h3><p>{p.description}</p><a className="product-link" href={p.url} target="_blank" rel="noopener noreferrer">Ouvrir le site ↗</a></article>)}</div><div className="hint">Faites défiler horizontalement pour voir les applications.</div></section>
+      <section id="vision" className="container section two"><h2>Technologique, clair, fiable.</h2><div className="text"><p>Seyio Lab développe des outils professionnels avec une vision long terme : innovation utile, interfaces lisibles, architectures modernes et ambition européenne.</p><p>Nos produits s’appuient sur des technologies cloud, React et intelligence artificielle pour créer des solutions robustes, accessibles et évolutives.</p></div></section>
+    </main>
+    <footer className="container footer"><span>© {new Date().getFullYear()} Seyio Lab — Courbevoie, France</span><span><Link href="/mentions-legales">Mentions légales</Link> · <Link href="/politique-confidentialite">Confidentialité</Link></span></footer>
+  </>);
 }
