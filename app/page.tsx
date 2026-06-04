@@ -1,85 +1,20 @@
 
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-
-const products = [{"name": "Koprio", "description": "Gestion de copropriété moderne pour syndics, copropriétaires et professionnels de l’immobilier.", "url": "https://koprio.app", "logo": "/apps/koprio.png", "type": "wide"}, {"name": "Tamario", "description": "Secure data room pensée pour organiser, protéger et partager les documents sensibles.", "url": "https://tamario.app", "logo": "/apps/tamario.png", "type": "wide"}, {"name": "Leaxit", "description": "Solution digitale pour simplifier la restitution de bail et fluidifier les démarches locatives.", "url": "https://leaxit.com", "logo": "/apps/leaxit.png", "type": "app"}, {"name": "Coblio", "description": "Legal-tech IA pour la gestion, l’analyse et le suivi intelligent des contrats.", "url": "https://coblio.app", "logo": "/apps/coblio.png", "type": "wide"}, {"name": "Ovelis", "description": "Application SaaS en ligne, conçue pour répondre à des besoins métiers spécifiques.", "url": "https://ovelis.app", "logo": "/apps/ovelis.svg", "type": "app"}];
-
-export default function Home() {
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
-
-  const scrollProducts = (direction: "prev" | "next") => {
-    const el = carouselRef.current;
-    if (!el) return;
-    const card = el.querySelector<HTMLElement>(".product-card");
-    const step = card ? card.offsetWidth + 22 : 330;
-    el.scrollBy({ left: direction === "next" ? step : -step, behavior: "smooth" });
-    setActive((current) => {
-      const next = direction === "next" ? current + 1 : current - 1;
-      return Math.max(0, Math.min(products.length - 1, next));
-    });
-  };
-
-  return (
-    <>
-      <header className="container nav">
-        <Image src="/logo.svg" alt="Seyio Lab" width={210} height={50} priority />
-        <nav className="navlinks">
-          <a href="#produits">Produits</a>
-          <a href="#vision">Vision</a>
-          <Link href="/mentions-legales">Mentions légales</Link>
-        </nav>
-      </header>
-      <main>
-        <section className="hero">
-          <div className="hero-card container">
-            <div className="logo-wrap">
-              <Image className="logo-main" src="/logo.svg" alt="Logo Seyio Lab avec effet de lumière" width={720} height={180} priority />
-            </div>
-            <div className="kicker">Studio SaaS · IA · Cloud</div>
-            <h1>Construire les logiciels métiers de demain.</h1>
-            <p className="lead">Seyio Lab est un studio français d’édition de logiciels SaaS basé à Courbevoie. Nous concevons des produits digitaux professionnels, pensés pour devenir des entités indépendantes à maturité commerciale.</p>
-            <div className="actions"><a className="btn" href="#produits">Découvrir nos produits</a><a className="btn secondary" href="mailto:contact@seyiolab.com">Nous contacter</a></div>
-          </div>
-        </section>
-
-        <section id="produits" className="container section">
-          <h2>Une pépinière de produits digitaux.</h2>
-          <p className="text">Chaque application répond à un besoin métier clair : immobilier, legal-tech, gestion, data room, IA et expériences cloud. Le portefeuille est évolutif et s’enrichira avec les prochaines mises en ligne.</p>
-
-          <div className="products-carousel">
-            <button className="carousel-arrow prev" type="button" aria-label="Produit précédent" onClick={() => scrollProducts("prev")}>‹</button>
-            <div className="carousel-viewport">
-              <div className="carousel-track" ref={carouselRef}>
-                {products.map((product) => (
-                  <article className="product-card" key={product.name}>
-                    <div className="product-logo-box">
-                      <Image className={`product-logo ${product.type === "wide" ? "wide" : ""}`} src={product.logo} alt={`Logo ${product.name}`} width={220} height={120} />
-                    </div>
-                    <h3>{product.name}</h3>
-                    <p>{product.description}</p>
-                    <a className="product-link" href={product.url} target="_blank" rel="noopener noreferrer">Ouvrir le site ↗</a>
-                  </article>
-                ))}
-              </div>
-            </div>
-            <button className="carousel-arrow next" type="button" aria-label="Produit suivant" onClick={() => scrollProducts("next")}>›</button>
-          </div>
-
-          <div className="dots" aria-hidden="true">
-            {products.map((_, index) => <span key={index} className={`dot ${index === active ? "active" : ""}`} />)}
-          </div>
-        </section>
-
-        <section id="vision" className="container section two">
-          <h2>Technologique, clair, fiable.</h2>
-          <div className="text"><p>Seyio Lab développe des outils professionnels avec une vision long terme : innovation utile, interfaces lisibles, architectures modernes et ambition européenne.</p><p>Nos produits s’appuient sur des technologies cloud, React et intelligence artificielle pour créer des solutions robustes, accessibles et évolutives.</p></div>
-        </section>
-      </main>
-      <footer className="container footer"><span>© {new Date().getFullYear()} Seyio Lab — Courbevoie, France</span><span><Link href="/mentions-legales">Mentions légales</Link> · <Link href="/politique-confidentialite">Confidentialité</Link></span></footer>
-    </>
-  );
-}
+const products = [{"name": "Koprio", "description": "Gestion de copropriété moderne pour syndics, copropriétaires et professionnels de l’immobilier.", "url": "https://koprio.app", "logo": "/apps/koprio.png", "type": "wide"}, {"name": "Tamario", "description": "Secure data room pensée pour organiser, protéger et partager les documents sensibles.", "url": "https://tamario.app", "logo": "/apps/tamario.png", "type": "wide"}, {"name": "Leaxit", "description": "Solution digitale pour simplifier la restitution de bail et fluidifier les démarches locatives.", "url": "https://leaxit.com", "logo": "/apps/leaxit.png", "type": "app"}, {"name": "Coblio", "description": "Legal-tech IA pour la gestion, l’analyse et le suivi intelligent des contrats.", "url": "https://coblio.app", "logo": "/apps/coblio.png", "type": "wide"}, {"name": "Ovelis", "description": "Application SaaS en ligne, conçue pour répondre à des besoins métiers spécifiques.", "url": "https://ovelis.app", "logo": "/apps/ovelis.png", "type": "tall"}];
+const clients = [{"name": "Buroprint", "url": "https://buroprint.fr", "logo": "/clients/buroprint.png", "description": "Buroprint nous a confié la conception d’outils digitaux destinés à simplifier l’expérience client et accélérer la qualification des demandes.", "projects": ["Bulio", "Simulateurs en ligne", "Interfaces de qualification et parcours de conversion"]}, {"name": "Everstone", "url": "https://everstone.fr", "logo": "/clients/everstone.jpg", "description": "Everstone nous a confié le développement d’un CRM métier sur mesure, pensé pour structurer le suivi commercial et les opérations internes.", "projects": ["CRM métier", "Suivi des opportunités", "Outils internes de pilotage"]}];
+export default function Home(){
+ const carouselRef=useRef<HTMLDivElement>(null); const [active,setActive]=useState(0); const [status,setStatus]=useState(""); const [loading,setLoading]=useState(false);
+ const scrollProducts=(direction:"prev"|"next")=>{const el=carouselRef.current;if(!el)return;const card=el.querySelector<HTMLElement>(".product-card");const step=card?card.offsetWidth+22:330;el.scrollBy({left:direction==="next"?step:-step,behavior:"smooth"});setActive(c=>Math.max(0,Math.min(products.length-1,direction==="next"?c+1:c-1)));};
+ async function submitContact(event:React.FormEvent<HTMLFormElement>){event.preventDefault();setLoading(true);setStatus("");const form=event.currentTarget;const payload=Object.fromEntries(new FormData(form).entries());const res=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});const data=await res.json();setLoading(false);if(res.ok){setStatus("Message envoyé. Nous revenons vers vous rapidement.");form.reset();}else setStatus(data.error||"Une erreur est survenue.");}
+ return <><header className="container nav"><Image src="/logo.svg" alt="Seyio Lab" width={210} height={50} priority/><nav className="navlinks"><a href="#produits">Produits</a><a href="#services">Services</a><a href="#clients">Clients</a><a href="#contact">Contact</a><Link href="/mentions-legales">Mentions légales</Link></nav></header>
+ <main>
+ <section className="hero"><div className="hero-card container"><div className="logo-wrap"><Image className="logo-main" src="/logo.svg" alt="Logo Seyio Lab avec effet de lumière" width={720} height={180} priority/></div><div className="kicker">Studio SaaS · IA · Applications métiers</div><h1>Construire les logiciels métiers de demain.</h1><p className="lead">Seyio Lab est un studio français d’édition de logiciels SaaS basé à Courbevoie. Nous créons nos propres produits et développons des applications sur mesure pour les entreprises ambitieuses.</p><div className="actions"><a className="btn" href="#services">Nos services</a><a className="btn secondary" href="#contact">Contactez-nous</a></div></div></section>
+ <section id="produits" className="container section"><h2>Une pépinière de produits digitaux.</h2><p className="text">Chaque application répond à un besoin métier clair : immobilier, legal-tech, gestion, data room, IA et expériences cloud. Le portefeuille est évolutif et s’enrichira avec les prochaines mises en ligne.</p><div className="products-carousel"><button className="carousel-arrow prev" type="button" onClick={()=>scrollProducts("prev")}>‹</button><div className="carousel-viewport"><div className="carousel-track" ref={carouselRef}>{products.map(p=><article className="product-card" key={p.name}><div className="product-logo-box"><Image className={`product-logo ${p.type}`} src={p.logo} alt={`Logo ${p.name}`} width={220} height={120}/></div><h3>{p.name}</h3><p>{p.description}</p><a className="product-link" href={p.url} target="_blank" rel="noopener noreferrer">Ouvrir le site ↗</a></article>)}</div></div><button className="carousel-arrow next" type="button" onClick={()=>scrollProducts("next")}>›</button></div><div className="dots">{products.map((_,i)=><span key={i} className={`dot ${i===active?"active":""}`} />)}</div></section>
+ <section id="services" className="container section"><h2>Développement d’applications pour clients.</h2><p className="text">Nous accompagnons les entreprises dans la conception, le développement et l’évolution d’applications web professionnelles : de l’idée initiale au produit exploitable, sécurisé et maintenable.</p><div className="services-grid"><article className="service-card"><h3>Applications SaaS sur mesure</h3><p>Plateformes web modernes, multi-utilisateurs, performantes et adaptées à vos processus métier.</p></article><article className="service-card"><h3>CRM & outils internes</h3><p>Outils de pilotage, tableaux de bord, workflows commerciaux et automatisations internes.</p></article><article className="service-card"><h3>IA & automatisation</h3><p>Intégration d’IA pour analyser, classer, générer, assister ou accélérer vos tâches répétitives.</p></article><article className="service-card"><h3>Simulateurs en ligne</h3><p>Calculateurs, configurateurs et parcours interactifs orientés conversion.</p></article><article className="service-card"><h3>UX, cloud & sécurité</h3><p>Interfaces claires, architecture cloud, authentification, permissions et bonnes pratiques de sécurité.</p></article><article className="service-card"><h3>Maintenance & évolution</h3><p>Amélioration continue, nouvelles fonctionnalités, supervision et accompagnement long terme.</p></article></div></section>
+ <section id="clients" className="container section"><h2>Ils nous font confiance.</h2><p className="text">Des entreprises nous confient la création d’outils digitaux structurants, pensés pour améliorer leurs opérations, leurs ventes ou leur expérience client.</p><div className="clients-grid">{clients.map(c=><article className="client-card" key={c.name}><div className="client-logo-box"><Image className="client-logo" src={c.logo} alt={`Logo ${c.name}`} width={360} height={120}/></div><h3>{c.name}</h3><p>{c.description}</p><ul className="client-projects">{c.projects.map(project=><li key={project}>{project}</li>)}</ul><a className="client-link" href={c.url} target="_blank" rel="noopener noreferrer">Voir le site ↗</a></article>)}</div></section>
+ <section id="vision" className="container section two"><h2>Technologique, clair, fiable.</h2><div className="text"><p>Seyio Lab développe des outils professionnels avec une vision long terme : innovation utile, interfaces lisibles, architectures modernes et ambition européenne.</p><p>Nos produits s’appuient sur des technologies cloud, React et intelligence artificielle pour créer des solutions robustes, accessibles et évolutives.</p></div></section>
+ <section id="contact" className="container section contact-panel"><div><h2>Parlons de votre projet.</h2><p className="text">Vous souhaitez créer une application métier, un SaaS, un CRM ou un outil interne ? Décrivez-nous votre besoin, nous vous répondrons rapidement.</p></div><form className="contact-form" onSubmit={submitContact}><div className="field"><label htmlFor="name">Nom</label><input id="name" name="name" required minLength={2} placeholder="Votre nom"/></div><div className="field"><label htmlFor="email">Email</label><input id="email" name="email" type="email" required placeholder="vous@entreprise.com"/></div><div className="field"><label htmlFor="company">Entreprise</label><input id="company" name="company" placeholder="Nom de votre entreprise"/></div><div className="field"><label htmlFor="message">Message</label><textarea id="message" name="message" required minLength={20} placeholder="Présentez votre besoin, vos objectifs ou le contexte du projet."/></div><p className="form-note">Ces informations sont utilisées uniquement pour répondre à votre demande.</p><button className="submit" disabled={loading} type="submit">{loading?"Envoi...":"Envoyer le message"}</button>{status&&<div className="status">{status}</div>}</form></section>
+ </main><footer className="container footer"><span>© {new Date().getFullYear()} Seyio Lab — Courbevoie, France</span><span><Link href="/mentions-legales">Mentions légales</Link> · <Link href="/politique-confidentialite">Confidentialité</Link></span></footer></>}
