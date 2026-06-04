@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Portfolio — Seyio Lab",
+  title: "Portfolio",
   description:
     "Découvrez les produits SaaS, applications métiers et projets clients développés par Seyio Lab : Koprio, Tamario, Coblio, Leaxit, Ovelis, Buroprint et Everstone.",
+  alternates: { canonical: "/portfolio" },
 };
 
 const products = [
