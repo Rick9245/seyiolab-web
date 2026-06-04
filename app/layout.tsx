@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     default: "Seyio Lab — Studio français d’édition de logiciels SaaS & IA",
     template: "%s — Seyio Lab",
   },
+verification: {
+  google: "COLLE_ICI_LA_VALEUR_CONTENT",
+},
   description: siteDescription,
   keywords: [
     "Seyio Lab",
