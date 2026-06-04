@@ -1,30 +1,41 @@
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import "./globals.css";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://seyiolab.com"),
   title: "Seyio Lab — Studio français d’édition de logiciels SaaS & IA",
-  description: "Seyio Lab est un studio français d’édition de logiciels SaaS, IA et applications métiers basé à Courbevoie. Nous créons nos propres produits et développons des solutions sur mesure pour nos clients.",
-  keywords: ["Seyio Lab","studio SaaS","développement application","application métier","IA","CRM","Courbevoie"],
-  alternates: { canonical: "/" },
-  openGraph: { title: "Seyio Lab — Studio SaaS & applications métiers", description: "Studio français d’édition de logiciels SaaS, IA et applications métiers.", url: "https://seyiolab.com", siteName: "Seyio Lab", images: [{ url: "/og-image.png", width: 1200, height: 630 }], locale: "fr_FR", type: "website" },
-  twitter: { card: "summary_large_image", title: "Seyio Lab", description: "Studio SaaS, IA et applications métiers.", images: ["/og-image.png"] },
+  description:
+    "Seyio Lab est un studio français d’édition de logiciels SaaS, IA et applications métiers basé à Courbevoie.",
   icons: { icon: "/favicon.svg", apple: "/apple-touch-icon.png" },
-  robots: { index: true, follow: true }
+  robots: { index: true, follow: true },
 };
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const jsonLd = {"@context":"https://schema.org","@type":"Organization",name:"SEYIO LAB",legalName:"SEYIO LAB",url:"https://seyiolab.com",logo:"https://seyiolab.com/logo.svg",email:"contact@seyiolab.com",identifier:"104 780 986",address:{"@type":"PostalAddress","streetAddress":"21 Boulevard Georges Clémenceau","postalCode":"92400","addressLocality":"Courbevoie","addressCountry":"FR"},founder:"Yacov SERERO"};
- return (
-  <html lang="fr">
-    <body>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      {children}
-      <Analytics />
-      <SpeedInsights />
-    </body>
-  </html>
-);
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "SEYIO LAB",
+    url: "https://seyiolab.com",
+    email: "contact@seyiolab.com",
+  };
+
+  return (
+    <html lang="fr">
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
+    </html>
+  );
+}
