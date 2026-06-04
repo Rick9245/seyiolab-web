@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s — Seyio Lab",
   },
 verification: {
-  google: "ZAWvkQWkyi1o0YJA",
+  google: "ZAWvkQWkyi1o0",
 },
   description: siteDescription,
   keywords: [
